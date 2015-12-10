@@ -1,0 +1,46 @@
+
+Correção de erro ao traduzir virtuemart
+
+
+CREATE TABLE qldzn_virtuemart_categories_pt_br SELECT*FROM qldzn_virtuemart_categories_en_gb;
+CREATE TABLE qldzn_virtuemart_manufacturercategories_pt_br SELECT * FROM qldzn_virtuemart_manufacturercategories_en_gb;
+CREATE TABLE qldzn_virtuemart_manufacturers_pt_br SELECT * FROM qldzn_virtuemart_manufacturers_en_gb;
+CREATE TABLE qldzn_virtuemart_paymentmethods_pt_br SELECT * FROM qldzn_virtuemart_paymentmethods_en_gb;
+CREATE TABLE qldzn_virtuemart_products_pt_br SELECT * FROM qldzn_virtuemart_products_en_gb;
+CREATE TABLE qldzn_virtuemart_shipmentmethods_pt_br SELECT * FROM qldzn_virtuemart_shipmentmethods_en_gb;
+
+erro virtuemart VmTableData Definir apelido no registro está faltando ! Não é possível salvar o registro com Definir apelido.
+
+htacess
+ # Habilitar o PHP 5.3
+AddType application/x-httpd-php53 .php
+
+Erro preço em dolar
+
+Verificar moeda e paises, vmError: VmTable #__virtuemart_vendors_es_es Check not passed. Neither slug nor
+
+Colocar nome da loja
+
+-centered
+
+Erro chamadas do VM, verificar JQuery com moontools.js, usar um plugin pra evitar conflito
+Recomendo o jquery easy se for trabalhar com pagseguro.
+
+EMAIL PEDIDOS VM
+
+cpf aleatorio na loja - colorset
+
+
+MAGIC QUOTE NAO DESLIGA!! >>
+Erro 500 ao acessar o site, isto pode ocorrer devido ao servidor de hospedagem executar o arquivo htaccess como cgi. Neste caso será necessário criar o arquivo php.ini com código abaixo, e copiá-lo para a raiz de seu site, por exemplo /home/meusite/public_html.
+
+magic_quotes_gpc = Off
+
+Criar o arquivo .htaccess com o código:
+
+suPHP_ConfigPath /home/meusite/public_html
+
+ERRO APENAS ADMIN ACESSA VIA HTTPS
+
+desativar extensões de ssl e não forçar pelo admin do joomla, configurar manualmente os arquivos.
+https://www.joomlart.com/tutorials/joomla-tutorials/how-to-use-ssl-in-a-joomla-site
