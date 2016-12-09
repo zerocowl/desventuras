@@ -47,7 +47,7 @@ steps = [
         page.evaluate(function() {
             document.getElementById("user").value = "";
             document.getElementById("pass").value = "";
-            document.getElementById("login").click(); //our submit form
+            document.getElementById("login").click(); //or submit form
 
         });
     },
@@ -63,7 +63,7 @@ steps = [
 
 
 //Execute steps one by one
-interval = setInterval(executeRequestsStepByStep, 3000);
+interval = setInterval(executeRequestsStepByStep, 50); 
 
 function executeRequestsStepByStep() {
     if (loadInProgress == false && typeof steps[testindex] == "function") {
