@@ -1,6 +1,6 @@
 /*
 Phantom login
-I decided to write a running script for PhantomJS which will login to websites using provided username and password
+Script for PhantomJS which will login to websites using provided username and password
 saving everything in html.
 */
 
@@ -72,7 +72,7 @@ function executeRequestsStepByStep() {
         testindex++;
     }
     if (typeof steps[testindex] != "function") {
-        console.log("tasks completed!");
+        console.log("Tasks completed!");
         phantom.exit();
     }
 }
