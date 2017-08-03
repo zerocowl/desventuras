@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  </head>
+
+  <body>
+    <div id="raw_data"><hr><li style="color: rgb(16, 53, 141);font-weight:bold;">0616-001159
+						
+			
+				</li><li id="data">28/06/16 - 14:39:43
+			
+			
+				</li><li id="obser">Observação
+			
+				
+				
+					Bom dia Prezados,<br>
+estou com problemas na visuailização do detalhamento de credito.<br>
+Chega a abrir o detalhamento,<br>
+mas não vem inscrito o banco que o cliente recebe e disponivel para<br>
+recebimento.<br>
+<br>
+na parte disponivel para recebimento vem escrito com data fixa 01/01/0001<br>
+á 01/01/0001<br>
+todos com competencia 05/2016.<br>
+<br>
+preciso que vejam o quanto antes.<br>
+<br>
+eu já conversei com o Bruno e passei o caso também para o Eduardo.<br>
+<br>
+Atenciosamente,<br>
+Freedom<br>
+(41)99374556<br>
+
+<div id="raw_data"><hr><li style="color: rgb(16, 53, 141);font-weight:bold;">0616-001444
+						
+			
+				</li><li id="data">28/06/16 - 14:39:43
+			
+			
+				</li><li id="obser">Observação
+			
+				
+				
+					Bom dia Prezados,<br>
+estou com problemas na visuailização do detalhamento de credito.<br>
+Chega a abrir o detalhamento,<br>
+mas não vem inscrito o banco que o cliente recebe e disponivel para<br>
+recebimento.<br>
+<br>
+na parte disponivel para recebimento vem escrito com data fixa 01/01/0001<br>
+á 01/01/0001<br>
+todos com competencia 05/2016.<br>
+<br>
+preciso que vejam o quanto antes.<br>
+<br>
+eu já conversei com o Bruno e passei o caso também para o Eduardo.<br>
+<br>
+Atenciosamente,<br>
+Freedom<br>
+(41)99374556<br>
+				
+				
+		</li><hr><li style="color: rgb(16, 53, 141);font-weight:bold;">0616-001156
+						
+			
+				</li><li id="data">28/06/16 - 12:56:34
+			
+			
+				</li><li id="obser">Observação
+			
+				
+				
+					PSC<br>
+---------- Mensagem encaminhada ----------<br>
+De: Flavia Faria &lt;flavia.faria@grupopn.com.br&gt;<br>
+Data: 28 de junho de 2016 09:53<br>
+Assunto: Fwd: BeviMais - Mensagem Fale Conosco<br>
+Para: Gabriel Campos &lt;gabriel.campos@grupopn.com.br&gt;,<br>
+MATHEUSM.MIRANDA@henrimath.com.br<br>
+<br>
+<br>
+Gabriel,<br>
+<br>
+Por gentileza verificar a ocorrência.<br>
+<br>
+Obrigada<br>
+<br>
+<br>
+---------- Mensagem encaminhada ----------<br>
+De: matheus miranda &lt;matheusm.miranda@henrimath.com.br&gt;<br>
+Data: 28 de junho de 2016 09:52<br>
+Assunto: Re: BeviMais - Mensagem Fale Conosco<br>
+Para: Flavia Faria &lt;flavia.faria@grupopn.com.br&gt;<br>
+Cc: MATHEUSM.MIRANDA@henrimath.com.br<br>
+<br>
+<br>
+bom dia flavia<br>
+<br>
+porem este resgate ao colocar a senha aparece na tela que ja possuia<br>
+resgates antes desse e que nao dava para dar andamento e que não poderia<br>
+ser efetivado<br>
+<br>
+Em 28.06.2016 09:47, Flavia Faria escreveu:<br>
+<br>
+Bom  dia Matheus<br>
+<br>
+De fato você possui um pedido de resgate efetuado hoje às 09h16 e enquanto<br>
+este resgate não for aprovado, você não consegue realizar um novo.<br>
+<br>
+[image: Imagem inline 1]<br>
+<br>
+<br>
+Em 28 de junho de 2016 09:18, &lt;MATHEUSM.MIRANDA@henrimath.com.br&gt; escreveu:<br>
+<br>
+&gt; Marketing,<br>
+&gt;<br>
+&gt; Você acabou de receber uma nova mensagem do sistema BeviMais:<br>
+&gt;<br>
+&gt; * Nome:*<br>
+&gt; *E-mail:* MATHEUSM.MIRANDA@HENRIMATH.COM.BR<br>
+&gt; *Telefone:* BeviMais.Entity.Entity.Telefone<br>
+&gt; *Código Referência:* SP11-24751<br>
+&gt; *Assunto:* CARTÃO BEVI MAIS MASTERCARD<br>
+&gt; *Mensagem:* não estou conseguindo mais resgatar minha pontuação , fala<br>
+&gt; que ja tenho solicitaçoes em andamento e da erro porem não tenho nenhuma<br>
+&gt; solicitação em andamento<br>
+&gt;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+--<br>
+		</li>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>      
+      "use strict";
+     $(function() {
+        
+        var tickets = [];
+        var currentTicket = null
+        
+        $('li').each(function (i, elm) {
+          
+          // If we have a blue LI, it means a new ticket
+          if($(elm).attr('style')) {
+            
+            // If we were dealing with another ticket, push that one and begin a new one
+            if(currentTicket) tickets.push(currentTicket);
+            currentTicket = {code: $(elm).text()};
+            
+          }
+          
+          // If first ticket, create empty obj
+          if(!currentTicket) { currentTicket = {}; }
+          
+         
+          if($(elm).attr('id') == "data") {
+            currentTicket.date = $(elm).text();
+            return;
+          }          
+          
+          if($(elm).attr('id') == "obser") {
+            currentTicket.obs = $(elm).text();
+            return;
+          }
+          
+        });
+        
+        // Push last ticket to array
+        if(currentTicket) tickets.push(currentTicket);
+        
+        console.log(tickets);
+        return tickets;
+      })
+      
+    </script>
+  </body>
+
+</html>

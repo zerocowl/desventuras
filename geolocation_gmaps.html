@@ -1,0 +1,53 @@
+<!-- Pega a geolocalização e retorna o endereço do usuario -->
+
+<!DOCTYPE html>
+<html>
+<title>GM Endereco</title>
+<head>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+</head>
+<body>
+
+<p>Pegar localização</p>
+
+<button onclick="getReverseGeocodingData()">CLIQUE AQUI</button>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+var x = document.getElementById("demo");
+function getReverseGeocodingData() {
+//busca latitude e longitude
+// o metodo getCurrentPosition recebe uma função caso esteja OK e outra função para casos de erro
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "NAO VAI ROLA :(";
+    }
+
+    function showPosition(position) {
+        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    // Liga o forninho
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        if (status !== google.maps.GeocoderStatus.OK) {
+            alert(status);
+        }
+        // Chama a mãe da Geovana
+        //Verifica se o status esta OK
+        if (status == google.maps.GeocoderStatus.OK) {
+            console.log(results);
+            var address = (results[0].formatted_address);
+            x.innerHTML = "<h2>Endereco" + address + "</h2><br>Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+        }
+    });
+
+
+    }
+
+}
+
+</script>
+</body>
+</html>
