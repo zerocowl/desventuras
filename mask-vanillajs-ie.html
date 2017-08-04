@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Testes Mask IE</title>
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <form action="/">
+        CPF/CNPJ: <input type="text" id="campo"><br>
+        Celular: <input type="text" id="fone"><br>       
+    </form> 
+    <select id="itens">
+        <option value="2">Café</option>
+        <option value="8">123</option>
+        <option value="3">Amora</option>
+        <option value="15">SUS</option>
+    </select>
+    <button onclick="ordenar()">Ordenar</button>
+    <p class="error" style="color:red"></p>
+    <script>   
+        (function($) {
+            var campo = $("#campo");
+            var fone = $("#fone");           
+            //Celular com verificação do nono digito
+            fone.mask("(99) 9999-9999?9");
+            // CPF ou CNPJ
+            campo.mask("999.999.999-99?99999");
+            campo.on("keyup", function (e){
+                var _query = $(this).val().replace(/[^a-zA-Z 0-9]+/g,''); //apenas numeros
+                
+                if (_query.length == 11) {
+                    campo.mask("999.999.999-99?99999");
+                }                
+                if (_query.length == 14) {
+                    campo.mask("99.999.999/9999-99");
+                }                          
+            });        
+        })(jQuery); //IIFE jquery
+
+        //Inverter string
+        String.prototype.reverse = function(){
+            return this.split('').reverse().join('');
+        };  
+        //Ordenar select
+        function ordenar() {
+            var itensOrdenados = $('#itens option').sort(function (a, b) {
+                return a.text < b.text ? -1 : 1;
+            });                
+            $('#itens').html(itensOrdenados);
+        }
+    </script>
+    
+</body>
+</html>
